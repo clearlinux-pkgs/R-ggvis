@@ -4,33 +4,33 @@
 #
 Name     : R-ggvis
 Version  : 0.4.4
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/ggvis_0.4.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ggvis_0.4.4.tar.gz
 Summary  : Interactive Grammar of Graphics
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1 MIT
-Requires: R-assertthat
-Requires: R-dplyr
-Requires: R-htmltools
-Requires: R-jsonlite
-Requires: R-lazyeval
-Requires: R-pkgconfig
-Requires: R-plyr
-Requires: R-shiny
+Requires: R-cli
+Requires: R-httpuv
+Requires: R-purrr
+Requires: R-xtable
 BuildRequires : R-assertthat
+BuildRequires : R-cli
 BuildRequires : R-dplyr
 BuildRequires : R-htmltools
+BuildRequires : R-httpuv
 BuildRequires : R-jsonlite
 BuildRequires : R-lazyeval
 BuildRequires : R-pkgconfig
 BuildRequires : R-plyr
+BuildRequires : R-purrr
 BuildRequires : R-shiny
+BuildRequires : R-xtable
 BuildRequires : buildreq-R
 
 %description
-best parts of 'ggplot2', combining them with the reactive framework of
-    'shiny' and drawing web graphics using 'vega'.
+# ggvis
+[![Build Status](https://travis-ci.org/rstudio/ggvis.svg?branch=master)](https://travis-ci.org/rstudio/ggvis)
 
 %prep
 %setup -q -c -n ggvis
@@ -40,11 +40,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538187422
+export SOURCE_DATE_EPOCH=1552896944
 
 %install
+export SOURCE_DATE_EPOCH=1552896944
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1538187422
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -79,8 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library ggvis|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  ggvis || :
 
 
 %files
@@ -127,6 +126,56 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/ggvis/help/paths.rds
 /usr/lib64/R/library/ggvis/html/00Index.html
 /usr/lib64/R/library/ggvis/html/R.css
+/usr/lib64/R/library/ggvis/tests/specs/bar.r
+/usr/lib64/R/library/ggvis/tests/specs/bar/categorical-x.json
+/usr/lib64/R/library/ggvis/tests/specs/bar/continuous-x.json
+/usr/lib64/R/library/ggvis/tests/specs/boxplot.r
+/usr/lib64/R/library/ggvis/tests/specs/boxplot/boxplot-categorical.json
+/usr/lib64/R/library/ggvis/tests/specs/boxplot/boxplot-continuous.json
+/usr/lib64/R/library/ggvis/tests/specs/boxplot/boxplot-no-outliers.json
+/usr/lib64/R/library/ggvis/tests/specs/data.r
+/usr/lib64/R/library/ggvis/tests/specs/data/dots.json
+/usr/lib64/R/library/ggvis/tests/specs/layer.r
+/usr/lib64/R/library/ggvis/tests/specs/layer/freqpoly-grouped.json
+/usr/lib64/R/library/ggvis/tests/specs/layer/histogram.json
+/usr/lib64/R/library/ggvis/tests/specs/layer/smooth-grouped.json
+/usr/lib64/R/library/ggvis/tests/specs/layer/smooth.json
+/usr/lib64/R/library/ggvis/tests/specs/line.r
+/usr/lib64/R/library/ggvis/tests/specs/line/basic.json
+/usr/lib64/R/library/ggvis/tests/specs/line/layer-line-nominal-x.json
+/usr/lib64/R/library/ggvis/tests/specs/line/layer-line.json
+/usr/lib64/R/library/ggvis/tests/specs/line/sort.json
+/usr/lib64/R/library/ggvis/tests/specs/scales.R
+/usr/lib64/R/library/ggvis/tests/specs/scales/bars.json
+/usr/lib64/R/library/ggvis/tests/specs/scales/combined_legend.json
+/usr/lib64/R/library/ggvis/tests/specs/scales/custom.json
+/usr/lib64/R/library/ggvis/tests/specs/scales/datetime.json
+/usr/lib64/R/library/ggvis/tests/specs/scales/datetime_hist.json
+/usr/lib64/R/library/ggvis/tests/specs/scales/domain_numeric.json
+/usr/lib64/R/library/ggvis/tests/specs/scales/dual.json
+/usr/lib64/R/library/ggvis/tests/specs/scales/hide_guides.json
+/usr/lib64/R/library/ggvis/tests/specs/scales/log.json
+/usr/lib64/R/library/ggvis/tests/specs/scatter.r
+/usr/lib64/R/library/ggvis/tests/specs/scatter/basic.json
+/usr/lib64/R/library/ggvis/tests/specs/scatter/fill-continuous.json
+/usr/lib64/R/library/ggvis/tests/specs/scatter/fill-discrete.json
+/usr/lib64/R/library/ggvis/tests/specs/scatter/transform.json
+/usr/lib64/R/library/ggvis/tests/testthat.R
+/usr/lib64/R/library/ggvis/tests/testthat/test-compute-bin.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-compute-boxplot.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-compute-count.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-compute-density.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-compute-model-prediction.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-compute-stack.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-compute-tabulate.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-flatten.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-ggvis.R
+/usr/lib64/R/library/ggvis/tests/testthat/test-is-dynamic.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-mark-properties.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-props.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-specs.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-utils-data.r
+/usr/lib64/R/library/ggvis/tests/testthat/test-utils.r
 /usr/lib64/R/library/ggvis/update.sh
 /usr/lib64/R/library/ggvis/www/ggvis/css/gear.png
 /usr/lib64/R/library/ggvis/www/ggvis/css/ggvis.css
