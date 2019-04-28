@@ -6,6 +6,7 @@ R-htmltools
 R-httpuv
 R-jsonlite
 R-lazyeval
+R-pillar
 R-pkgconfig
 R-plyr
 R-purrr

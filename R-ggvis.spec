@@ -4,16 +4,13 @@
 #
 Name     : R-ggvis
 Version  : 0.4.4
-Release  : 12
+Release  : 13
 URL      : https://cran.r-project.org/src/contrib/ggvis_0.4.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ggvis_0.4.4.tar.gz
 Summary  : Interactive Grammar of Graphics
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1 MIT
-Requires: R-cli
-Requires: R-httpuv
-Requires: R-purrr
-Requires: R-xtable
+Requires: R-pillar
 BuildRequires : R-assertthat
 BuildRequires : R-cli
 BuildRequires : R-dplyr
@@ -21,6 +18,7 @@ BuildRequires : R-htmltools
 BuildRequires : R-httpuv
 BuildRequires : R-jsonlite
 BuildRequires : R-lazyeval
+BuildRequires : R-pillar
 BuildRequires : R-pkgconfig
 BuildRequires : R-plyr
 BuildRequires : R-purrr
@@ -40,10 +38,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552896944
+export SOURCE_DATE_EPOCH=1556472966
 
 %install
-export SOURCE_DATE_EPOCH=1552896944
+export SOURCE_DATE_EPOCH=1556472966
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -79,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  ggvis || :
+R CMD check --no-manual --no-examples --no-codoc ggvis || :
 
 
 %files
