@@ -2,6 +2,7 @@
 R-assertthat
 R-cli
 R-dplyr
+R-glue
 R-htmltools
 R-httpuv
 R-jsonlite
@@ -11,4 +12,6 @@ R-pkgconfig
 R-plyr
 R-purrr
 R-shiny
+R-tibble
+R-tidyselect
 R-xtable
