@@ -4,36 +4,33 @@
 #
 Name     : R-ggvis
 Version  : 0.4.4
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/ggvis_0.4.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ggvis_0.4.4.tar.gz
 Summary  : Interactive Grammar of Graphics
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1 MIT
-Requires: R-glue
-Requires: R-tibble
-Requires: R-tidyselect
+Requires: R-assertthat
+Requires: R-dplyr
+Requires: R-htmltools
+Requires: R-jsonlite
+Requires: R-lazyeval
+Requires: R-magrittr
+Requires: R-plyr
+Requires: R-shiny
 BuildRequires : R-assertthat
-BuildRequires : R-cli
 BuildRequires : R-dplyr
-BuildRequires : R-glue
 BuildRequires : R-htmltools
-BuildRequires : R-httpuv
 BuildRequires : R-jsonlite
 BuildRequires : R-lazyeval
-BuildRequires : R-pillar
-BuildRequires : R-pkgconfig
+BuildRequires : R-magrittr
 BuildRequires : R-plyr
-BuildRequires : R-purrr
 BuildRequires : R-shiny
-BuildRequires : R-tibble
-BuildRequires : R-tidyselect
-BuildRequires : R-xtable
 BuildRequires : buildreq-R
 
 %description
-# ggvis
-[![Build Status](https://travis-ci.org/rstudio/ggvis.svg?branch=master)](https://travis-ci.org/rstudio/ggvis)
+best parts of 'ggplot2', combining them with the reactive framework of
+    'shiny' and drawing web graphics using 'vega'.
 
 %prep
 %setup -q -c -n ggvis
@@ -42,13 +39,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556474426
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1568749213
 
 %install
-export SOURCE_DATE_EPOCH=1556474426
+export SOURCE_DATE_EPOCH=1568749213
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -77,7 +74,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
