@@ -4,7 +4,7 @@
 #
 Name     : R-ggvis
 Version  : 0.4.5
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/ggvis_0.4.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ggvis_0.4.5.tar.gz
 Summary  : Interactive Grammar of Graphics
@@ -16,7 +16,6 @@ Requires: R-htmltools
 Requires: R-jsonlite
 Requires: R-lazyeval
 Requires: R-magrittr
-Requires: R-plyr
 Requires: R-shiny
 BuildRequires : R-assertthat
 BuildRequires : R-dplyr
@@ -24,32 +23,31 @@ BuildRequires : R-htmltools
 BuildRequires : R-jsonlite
 BuildRequires : R-lazyeval
 BuildRequires : R-magrittr
-BuildRequires : R-plyr
 BuildRequires : R-shiny
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-# ggvis
-[![Build Status](https://travis-ci.org/rstudio/ggvis.svg?branch=master)](https://travis-ci.org/rstudio/ggvis)
+best parts of 'ggplot2', combining them with the reactive framework of
+    'shiny' and drawing web graphics using 'vega'.
 
 %prep
 %setup -q -c -n ggvis
+cd %{_builddir}/ggvis
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572107040
+export SOURCE_DATE_EPOCH=1589777343
 
 %install
-export SOURCE_DATE_EPOCH=1572107040
+export SOURCE_DATE_EPOCH=1589777343
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
