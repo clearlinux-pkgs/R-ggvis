@@ -4,7 +4,7 @@
 #
 Name     : R-ggvis
 Version  : 0.4.8
-Release  : 45
+Release  : 46
 URL      : https://cran.r-project.org/src/contrib/ggvis_0.4.8.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ggvis_0.4.8.tar.gz
 Summary  : Interactive Grammar of Graphics
@@ -26,9 +26,6 @@ BuildRequires : R-magrittr
 BuildRequires : R-rlang
 BuildRequires : R-shiny
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 best parts of 'ggplot2', combining them with the reactive framework of
@@ -51,10 +48,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1678469489
+export SOURCE_DATE_EPOCH=1678821790
 
 %install
-export SOURCE_DATE_EPOCH=1678469489
+export SOURCE_DATE_EPOCH=1678821790
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-ggvis
 cp %{_builddir}/ggvis/LICENSE %{buildroot}/usr/share/package-licenses/R-ggvis/8b66ce7ad21c704ba8f23eb765d9f91aa5218078 || :
