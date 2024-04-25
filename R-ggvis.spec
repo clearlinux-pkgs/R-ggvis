@@ -7,7 +7,7 @@
 #
 Name     : R-ggvis
 Version  : 0.4.9
-Release  : 51
+Release  : 52
 URL      : https://cran.r-project.org/src/contrib/ggvis_0.4.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ggvis_0.4.9.tar.gz
 Summary  : Interactive Grammar of Graphics
